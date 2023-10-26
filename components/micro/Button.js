@@ -1,11 +1,34 @@
-import { View, Text } from "react-native";
+import { View, Text, Pressable, StyleSheet } from "react-native";
 
-const Button = ({children}) => {
+const Button = ({ children }) => {
+    const pressHandler = () => {
+        console.log('pressed')
+    }
   return (
-   <View>
-    <Text>{children}</Text>
-   </View>
-  )
-}
+    <Pressable onPress={pressHandler} style={({pressed}) => pressed ? [styles.btnContainer, styles.pressed] : styles.btnContainer} android_ripple={{color: 'hotpink'}}>
+      <View>
+        <Text style={styles.btnText}>{children}</Text>
+      </View>
+    </Pressable>
+  );
+};
 
 export default Button;
+
+const styles = StyleSheet.create({
+    btnContainer: {
+        backgroundColor:'deeppink',
+        borderRadius: 28,
+        paddingVertical: 8,
+        paddingHorizontal: 20,
+        elevation: 4
+    },
+    btnText: {
+        color: 'white',
+        textAlign: 'center'
+    },
+    pressed: {
+        opacity: 0.75,
+    }
+  });
+  

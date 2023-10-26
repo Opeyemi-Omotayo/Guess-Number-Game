@@ -11,8 +11,10 @@ const StartGameScreen = () => {
         autoCorrect={false}
         autoCapitalize="none"
       />
-      <Button>Reset</Button>
-      <Button>Confirm</Button>
+      <View style={styles.btnContainer}>
+        <Button>Reset</Button>
+        <Button>Confirm</Button>
+      </View>
     </View>
   );
 };
@@ -36,11 +38,18 @@ const styles = StyleSheet.create({
   numberInput: {
     height: 50,
     fontSize: 32,
-    borderBottomColor: "deeppink",
+    borderBottomColor: "brown",
     borderBottomWidth: 2,
-    color: "deeppink",
+    color: "brown",
     marginVertical: 8,
     width: 50,
     fontWeight: "bold",
+  },
+  btnContainer: {
+    flexDirection: 'row',
+    width: '50%',
+    marginVertical: 15,
+    alignItems: "center",
+    justifyContent: "space-between",
   },
 });
