@@ -3,11 +3,17 @@ import Button from "../components/micro/Button";
 
 const StartGameScreen = () => {
   return (
-      <View style={styles.inputContainer}>
-        <TextInput style={styles.numberInput} maxLength={2}/>
-        <Button>Reset</Button>
-        <Button>Confirm</Button>
-      </View>
+    <View style={styles.inputContainer}>
+      <TextInput
+        style={styles.numberInput}
+        maxLength={2}
+        keyboardType="number-pad"
+        autoCorrect={false}
+        autoCapitalize="none"
+      />
+      <Button>Reset</Button>
+      <Button>Confirm</Button>
+    </View>
   );
 };
 
@@ -21,20 +27,20 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     marginTop: 100,
     elevation: 8,
-    shadowColor: 'black',
-    shadowOffset: {width: 0, height: 2},
+    shadowColor: "black",
+    shadowOffset: { width: 0, height: 2 },
     shadowRadius: 6,
     shadowOpacity: 0.25,
-    marginHorizontal:10,
+    marginHorizontal: 10,
   },
   numberInput: {
     height: 50,
     fontSize: 32,
-    borderBottomColor: 'darkviolet',
+    borderBottomColor: "deeppink",
     borderBottomWidth: 2,
-    color: 'darkviolet',
+    color: "deeppink",
     marginVertical: 8,
     width: 50,
-    fontWeight: 'bold',
-  }
+    fontWeight: "bold",
+  },
 });
