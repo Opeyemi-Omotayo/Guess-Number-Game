@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
         backgroundColor:'deeppink',
         borderRadius: 28,
         paddingVertical: 8,
-        paddingHorizontal: 20,
+        paddingHorizontal: 25,
         elevation: 4
     },
     btnText: {
