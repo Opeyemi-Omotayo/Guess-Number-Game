@@ -18,6 +18,6 @@ const styles = StyleSheet.create({
     screen: {
         alignItems: 'center',
         justifyContent: 'center',
-    }
+    }, 
   });
   

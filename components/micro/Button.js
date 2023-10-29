@@ -1,4 +1,5 @@
 import { View, Text, Pressable, StyleSheet } from "react-native";
+import Colors from "../../constants/colors";
 
 const Button = ({ children, onPress }) => {
     
@@ -15,7 +16,7 @@ export default Button;
 
 const styles = StyleSheet.create({
     btnContainer: {
-        backgroundColor:'deeppink',
+        backgroundColor: Colors.primary500,
         borderRadius: 28,
         paddingVertical: 8,
         paddingHorizontal: 25,
