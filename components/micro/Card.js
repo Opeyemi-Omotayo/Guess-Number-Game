@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
       justifyContent: "center",
       backgroundColor: Colors.primary,
       borderRadius: 8,
-      marginTop: 50,
+      marginTop: 40,
       elevation: 8,
       shadowColor: "black",
       shadowOffset: { width: 0, height: 2 },
