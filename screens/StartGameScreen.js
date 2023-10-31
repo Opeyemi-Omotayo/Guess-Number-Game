@@ -1,8 +1,9 @@
 import { useState } from "react";
-import { View, TextInput, StyleSheet, Alert } from "react-native";
+import { View, TextInput, StyleSheet, Alert, Text } from "react-native";
 import Button from "../components/micro/Button";
 import Colors from "../constants/colors";
-
+import Title from "../components/micro/Title";
+import Card from "../components/micro/Card";
 
 const StartGameScreen = ({ onPickNumber }) => {
   const [enteredNumber, setEnteredNumber] = useState("");
@@ -29,20 +30,24 @@ const StartGameScreen = ({ onPickNumber }) => {
   };
 
   return (
-    <View style={styles.inputContainer}>
-      <TextInput
-        style={styles.numberInput}
-        maxLength={2}
-        keyboardType="number-pad"
-        autoCorrect={false}
-        autoCapitalize="none"
-        value={enteredNumber}
-        onChangeText={inputHandler}
-      />
-      <View style={styles.btnContainer}>
-        <Button onPress={resetInputHandler}>Reset</Button>
-        <Button onPress={confirmInputHandler}>Confirm</Button>
-      </View>
+    <View style={styles.root}>
+      <Title>Guess My Number</Title>
+      <Card>
+        <Text style={styles.instructionText}>Enter a number</Text>
+        <TextInput
+          style={styles.numberInput}
+          maxLength={2}
+          keyboardType="number-pad"
+          autoCorrect={false}
+          autoCapitalize="none"
+          value={enteredNumber}
+          onChangeText={inputHandler}
+        />
+        <View style={styles.btnContainer}>
+          <Button onPress={resetInputHandler}>Reset</Button>
+          <Button onPress={confirmInputHandler}>Confirm</Button>
+        </View>
+      </Card>
     </View>
   );
 };
@@ -50,18 +55,13 @@ const StartGameScreen = ({ onPickNumber }) => {
 export default StartGameScreen;
 
 const styles = StyleSheet.create({
-  inputContainer: {
-    alignItems: "center",
-    justifyContent: "center",
-    backgroundColor: Colors.primary,
-    borderRadius: 8,
-    marginTop: 100,
-    elevation: 8,
-    shadowColor: "black",
-    shadowOffset: { width: 0, height: 2 },
-    shadowRadius: 6,
-    shadowOpacity: 0.25,
-    marginHorizontal: 10,
+  root: {
+    marginHorizontal: 20,
+  },
+  instructionText: {
+    fontSize: 16,
+    paddingTop: 16,
+    color: "white",
   },
   numberInput: {
     height: 50,
