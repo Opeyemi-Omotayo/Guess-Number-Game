@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
-import { View, Text, StyleSheet, Alert } from "react-native";
+import { View, Text, StyleSheet, Alert, FlatList } from "react-native";
 import Title from "../components/micro/Title";
 import NumberContainer from "../components/game/NumberContainer";
 import Button from "../components/micro/Button";
 import Card from "../components/micro/Card";
-import { Ionicons } from '@expo/vector-icons'
+import { Ionicons } from "@expo/vector-icons";
+import GuessLogItem from "../components/game/GuessLogItem";
 
 function generateRandomBetween(min, max, exclude) {
   const rndNum = Math.floor(Math.random() * (max - min)) + min;
@@ -22,6 +23,7 @@ let maxBoundary = 100;
 function GameScreen({ userNumber, onGameOver }) {
   const initialGuess = generateRandomBetween(1, 100, userNumber);
   const [currentGuess, setCurrentGuess] = useState(initialGuess);
+  const [guessRounds, setGuessRounds] = useState([initialGuess]);
 
   useEffect(() => {
     if (currentGuess === userNumber) {
@@ -32,7 +34,7 @@ function GameScreen({ userNumber, onGameOver }) {
   useEffect(() => {
     minBoundary = 1;
     maxBoundary = 100;
-  }, [])
+  }, []);
 
   function nextGuessHandler(direction) {
     if (
@@ -57,7 +59,10 @@ function GameScreen({ userNumber, onGameOver }) {
       currentGuess
     );
     setCurrentGuess(newRndNumber);
+    setGuessRounds((prevGuessRounds) => [...prevGuessRounds, newRndNumber]);
   }
+
+  const guessRoundsListLength = guessRounds.length;
 
   return (
     <View style={styles.screen}>
@@ -70,6 +75,13 @@ function GameScreen({ userNumber, onGameOver }) {
           <Button onPress={nextGuessHandler.bind(this, "greater")}>+</Button>
         </View>
       </Card>
+      <View>
+        <FlatList
+          data={guessRounds}
+          keyExtractor={(item) => item}
+          renderItem={(itemData) => <GuessLogItem roundNumber={guessRoundsListLength - itemData.index} guess={itemData.item}/>}
+        />
+      </View>
     </View>
   );
 }
@@ -83,7 +95,7 @@ const styles = StyleSheet.create({
   },
   text: {
     padding: 10,
-    color: 'white'
+    color: "white",
   },
   btnContainer: {
     flexDirection: "row",
