@@ -61,8 +61,8 @@ function GameScreen({ userNumber, onGameOver }) {
       <Card>
         <Text style={styles.text}>Higher or lower?</Text>
         <View style={styles.btnContainer}>
-          <Button onPress={nextGuessHandler.bind(this, "lower")}><Ionicons name="md-remove" size={24} color='white'/></Button>
-          <Button onPress={nextGuessHandler.bind(this, "greater")}><Ionicons name="md-add" size={24} color='white'/></Button>
+          <Button onPress={nextGuessHandler.bind(this, "lower")}>-</Button>
+          <Button onPress={nextGuessHandler.bind(this, "greater")}>+</Button>
         </View>
       </Card>
     </View>
