@@ -20,9 +20,9 @@ export default function App() {
     'open-sans-bold': require('./assets/fonts/OpenSans-Bold.ttf'),
   });
 
-  if (!fontsLoaded) {
-    return <AppLoading />;
-  }
+  //if (!fontsLoaded) {
+  //  return <AppLoading />;
+  //}
 
   function pickedNumberHandler(pickedNumber) {
     setUserNumber(pickedNumber);

@@ -90,8 +90,10 @@ export default GameScreen;
 
 const styles = StyleSheet.create({
   screen: {
+    flex: 1,
     alignItems: "center",
     justifyContent: "center",
+    marginHorizontal: 8,
   },
   text: {
     padding: 10,
@@ -107,5 +109,6 @@ const styles = StyleSheet.create({
   },
   listContainer: {
     flex: 1,
+    marginTop: 15,
   }
 });
